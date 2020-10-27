@@ -7,16 +7,22 @@ const app = express()
 dotenv.config()
 
 // env vars
-const port = process.env.PORT || 8000
-const db = process.env.DB || 'mongodb://localhost:27017/clonehero'
+const port = process.env.PORT
+const db = process.env.DB
 
 // cors
-app.use(cors)
+app.use(cors())
 
 // body parser
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// import routes
+import songs from './routes/api/songs'
+
+// serve routes
+app.use('/api/songs', songs)
+
 // server and mongodb connection
-app.listen(port, () => console.log(`App listening on port: ${port}`))
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('MongoDB connection.'))
+app.listen(port, () => console.log(`App listening on port: ${port}`))
