@@ -13,6 +13,7 @@ const db = process.env.DB || 'mongodb://localhost:27017/clonehero'
 // cors
 app.use(cors)
 
+// body parser
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
