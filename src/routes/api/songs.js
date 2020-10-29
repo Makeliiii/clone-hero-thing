@@ -28,7 +28,9 @@ router.get('/', (req, res) => {
 // ROUTE GET /api/songs/:name
 // get song by song name
 router.get('/:name', (req, res) => {
-    Song.find({ Name: req.params.name })
+    const name = req.params.name
+
+    Song.find({ Name: { $regex: new RegExp(name, 'i') } })
         .then(song => {
             if (!song.length) {
                 return res.status(404).json({
