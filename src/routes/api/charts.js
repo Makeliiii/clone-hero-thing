@@ -153,4 +153,34 @@ router.get('/charters/:charter', (req, res) => {
         })
 })
 
+// ROUTE GET /api/charts/genres/:genre
+// get charts by genre
+router.get('/genres/:genre', (req, res) => {
+    const genre = req.params.genre
+
+    Song.find({ Genre: { $regex: new RegExp(genre, 'i') } })
+        .then(songs => {
+            if (!songs.length) {
+                return res.status(404).json({
+                    error: 'Couldn\'t find song',
+                    status: 'Songs not found',
+                    success: false
+                })
+            }
+
+            return res.status(200).json({
+                songs,
+                status: 'Songs found',
+                success: true
+            })
+        })
+        .catch(err => {
+            return res.status(404).json({
+                error: err,
+                status: 'Songs not found',
+                success: false
+            })
+        })
+})
+
 export default router
