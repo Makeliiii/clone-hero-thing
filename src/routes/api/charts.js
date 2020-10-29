@@ -80,7 +80,7 @@ router.get('/albums/:album', (req, res) => {
 
             return res.status(200).json({
                 songs,
-                status: 'Song not found',
+                status: 'Songs found',
                 success: true
             })
         })
@@ -110,7 +110,37 @@ router.get('/artists/:artist', (req, res) => {
 
             return res.status(200).json({
                 songs,
-                status: 'Song not found',
+                status: 'Songs found',
+                success: true
+            })
+        })
+        .catch(err => {
+            return res.status(404).json({
+                error: err,
+                status: 'Songs not found',
+                success: false
+            })
+        })
+})
+
+// ROUTE GET /api/charts/charters/:charter
+// get charts by charter
+router.get('/charters/:charter', (req, res) => {
+    const charter = req.params.charter
+
+    Song.find({ Charter: { $regex: new RegExp(charter, 'i') } })
+        .then(songs => {
+            if (!songs.length) {
+                return res.status(404).json({
+                    error: 'Couldn\'t find song',
+                    status: 'Songs not found',
+                    success: false
+                })
+            }
+
+            return res.status(200).json({
+                songs,
+                status: 'Songs found',
                 success: true
             })
         })
