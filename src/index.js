@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 // import routes
-import songs from './routes/api/songs'
+import charts from './routes/api/charts'
 
 // serve routes
-app.use('/api/songs', songs)
+app.use('/api/charts', charts)
 
 // server and mongodb connection
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('MongoDB connection.'))
