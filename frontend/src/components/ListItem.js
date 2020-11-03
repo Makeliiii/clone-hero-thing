@@ -10,7 +10,7 @@ const ListItem = props => {
             <li>{props.genre}</li>
             <li>{props.charter}</li>
             <li>{props.year}</li>
-            <li>{!props.lyrics ? 'Yes' : 'No'}</li>
+            <li>{!props.lyrics ? 'No' : 'Yes'}</li>
             <li>{props.songlength}</li>
         </ul>
     )
