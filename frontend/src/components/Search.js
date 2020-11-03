@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/search.module.css'
 
 const Search = props => {
+    const [select, setSelect] = useState('')
+
     return (
-        <form className={styles.search}>
-            <select className={styles.select} onChange={e => console.log(e.target.value)}>
+        <form className={styles.search} onSubmit={event => {
+            props.search(select, props.text)
+            event.preventDefault()
+        }}>
+            <select className={styles.select} onChange={e => setSelect(e.target.value)}>
                 {props.selects.map(({ value, label }) => {
                     return (
                         <option key={value} value={value}>

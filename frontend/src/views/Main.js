@@ -8,11 +8,11 @@ const Main = () => {
     const [charts, setCharts] = useState([])
     const [text, setText] = useState('')
     const [selects] = useState([
-        { label: "Name", value: "name" },
-        { label: "Album", value: "album" },
-        { label: "Artist", value: "artist" },
-        { label: "Genre", value: "genre" },
-        { label: "Charter", value: "charter" },
+        { label: "Name", value: "names" },
+        { label: "Album", value: "albums" },
+        { label: "Artist", value: "artists" },
+        { label: "Genre", value: "genres" },
+        { label: "Charter", value: "charters" },
     ])
 
     useEffect(() => {
@@ -23,12 +23,34 @@ const Main = () => {
             })
     }, [])
 
+    const search = async (route, term) => {
+        let link
+
+        if (route == 'names') {
+            link = `http://localhost:8000/api/charts/${term}`
+        } else {
+            link = `http://localhost:8000/api/charts/${route}/${term}`
+        }
+
+        await fetch(link)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (!data.success) {
+                    return
+                } else {
+                    setCharts(data.songs)
+                }
+            })
+    }
+
     return (
         <div>
             <Search
                 selects={selects}
                 setText={setText}
                 text={text}
+                search={search}
             />
             <List
                 charts={charts}
