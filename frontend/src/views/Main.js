@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 // components
 import Search from '../components/Search'
-import ListItem from '../components/ListItem'
+import List from '../components/List'
 
 const Main = () => {
     const [charts, setCharts] = useState([])
@@ -30,24 +30,9 @@ const Main = () => {
                 setText={setText}
                 text={text}
             />
-            <ul>
-                {charts.map((chart, index) => {
-                    return (
-                        <li key={index}>
-                            <ListItem 
-                                name={chart.Name}
-                                album={chart.Album}
-                                artist={chart.Artist}
-                                genre={chart.Genre}
-                                charter={chart.Charter}
-                                year={chart.Year}
-                                lyrics={chart.lyrics}
-                                songlength={chart.songlength}
-                            />
-                        </li>
-                    )
-                })}
-            </ul>
+            <List
+                charts={charts}
+            />
         </div>
     )
 }
