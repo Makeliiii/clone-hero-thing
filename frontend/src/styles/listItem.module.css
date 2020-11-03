@@ -4,10 +4,14 @@
     list-style: none;
     border-top: 1px solid black;
     border-right: 1px solid black;
+    margin: 0;
+    padding: 0;
 }
 
 .listItem li {
     text-align: center;
+    margin: 0;
+    padding: 8px 4px;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
 }

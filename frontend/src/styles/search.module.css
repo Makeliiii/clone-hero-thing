@@ -7,8 +7,8 @@
     font-size: 14px;
     box-sizing: border-box;
     margin-right: 5px;
-    padding: 5px 15px;
-    width: 7%;
+    padding: 5px;
+    width: 10%;
     border-radius: 2px;
     background-color: #E27D60;
 }
@@ -23,6 +23,6 @@
 .button {
     font-size: 14px;
     padding: 5px 20px;
-    width: 7%;
+    width: 10%;
     background-color: #E27D60;
 }
