@@ -1,0 +1,13 @@
+.listItem {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    list-style: none;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.listItem li {
+    text-align: center;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
