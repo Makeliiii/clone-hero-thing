@@ -1,0 +1,28 @@
+.search {
+    display: block;
+    margin: 5px;
+}
+
+.select {
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-right: 5px;
+    padding: 5px 15px;
+    width: 7%;
+    border-radius: 2px;
+    background-color: #E27D60;
+}
+
+.input {
+    font-size: 14px;
+    padding: 5px 5px;
+    width: 50%;
+    margin-right: 5px;
+}
+
+.button {
+    font-size: 14px;
+    padding: 5px 20px;
+    width: 7%;
+    background-color: #E27D60;
+}
