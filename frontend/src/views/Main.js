@@ -7,6 +7,7 @@ import List from '../components/List'
 const Main = () => {
     const [charts, setCharts] = useState([])
     const [text, setText] = useState('')
+    const [loading, setLoading] = useState(true)
     const [selects] = useState([
         { label: "Name", value: "names" },
         { label: "Album", value: "albums" },
@@ -20,6 +21,7 @@ const Main = () => {
             .then(res => res.json())
             .then(data => {
                 setCharts(data.songs)
+                setLoading(false)
             })
     }, [])
 
@@ -52,9 +54,7 @@ const Main = () => {
                 text={text}
                 search={search}
             />
-            <List
-                charts={charts}
-            />
+            { loading ? <p>Loading charts...</p> : <List charts={charts} /> }
         </div>
     )
 }
