@@ -26,7 +26,7 @@ const Main = () => {
     const search = async (route, term) => {
         let link
 
-        if (route == 'names') {
+        if (route === 'names') {
             link = `http://localhost:8000/api/charts/${term}`
         } else {
             link = `http://localhost:8000/api/charts/${route}/${term}`

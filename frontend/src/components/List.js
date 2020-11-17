@@ -1,12 +1,25 @@
 import React from 'react'
 import ListItem from './ListItem'
-import styles from '../styles/list.module.css'
+import styles from '../styles/list.module.scss'
 
 const List = props => {
     return (
-        <div className={styles.list}>
-            {props.charts.map((chart, index) => {
-                return (
+        <table className={styles.list}>
+            <thead>
+                <tr className={styles.listItem}>
+                    <th>Song</th>
+                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                    <th>Charter</th>
+                    <th>Year</th>
+                    <th>Lyrics</th>
+                    <th>Song Length</th>
+                </tr>
+            </thead>
+            <tbody>
+                {props.charts.map((chart, index) => {
+                    return (
                         <ListItem 
                             key={index}
                             name={chart.Name}
@@ -18,9 +31,10 @@ const List = props => {
                             lyrics={chart.lyrics}
                             songlength={chart.songlength}
                         />
-                )
-            })}
-        </div>
+                    )
+                })}
+            </tbody>
+        </table>
     )
 }
 

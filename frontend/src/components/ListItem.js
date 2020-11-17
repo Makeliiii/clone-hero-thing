@@ -1,18 +1,18 @@
 import React from 'react'
-import styles from '../styles/listItem.module.css'
+import styles from '../styles/list.module.scss'
 
 const ListItem = props => {
     return (
-        <ul className={styles.listItem}>
-            <li>{props.name}</li>
-            <li>{props.album}</li>
-            <li>{props.artist}</li>
-            <li>{props.genre}</li>
-            <li>{props.charter}</li>
-            <li>{props.year}</li>
-            <li>{!props.lyrics ? 'No' : 'Yes'}</li>
-            <li>{props.songlength}</li>
-        </ul>
+        <tr className={styles.listItem}>
+            <td>{props.name}</td>
+            <td>{props.album}</td>
+            <td>{props.artist}</td>
+            <td>{props.genre}</td>
+            <td>{props.charter}</td>
+            <td>{props.year}</td>
+            <td>{!props.lyrics ? 'No' : 'Yes'}</td>
+            <td>{props.songlength}</td>
+        </tr>
     )
 }
 

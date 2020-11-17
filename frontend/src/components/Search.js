@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../styles/search.module.css'
+import styles from '../styles/search.module.scss'
 
 const Search = props => {
     const [select, setSelect] = useState('')
