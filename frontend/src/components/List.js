@@ -18,10 +18,11 @@ const List = props => {
                 </tr>
             </thead>
             <tbody>
-                {props.charts.map((chart, index) => {
+                {props.charts.map(chart => {
                     return (
                         <ListItem 
-                            key={index}
+                            key={chart._id}
+                            id={chart._id}
                             name={chart.Name}
                             album={chart.Album}
                             artist={chart.Artist}
