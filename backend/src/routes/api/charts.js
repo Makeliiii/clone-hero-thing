@@ -39,8 +39,8 @@ router.get('/:name', (req, res) => {
     const name = req.params.name
 
     Song.find({ Name: { $regex: new RegExp(name, 'i') } })
-        .then(song => {
-            if (!song.length) {
+        .then(songs => {
+            if (!songs.length) {
                 return res.status(404).json({
                     error: 'Couldn\'t find song',
                     status: 'Song not found',
@@ -49,7 +49,7 @@ router.get('/:name', (req, res) => {
             }
 
             return res.status(200).json({
-                song,
+                songs,
                 status: 'Song found',
                 success: true
             })
