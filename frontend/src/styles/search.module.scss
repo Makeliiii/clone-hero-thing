@@ -1,28 +1,28 @@
+$orange: #E27D60;
+
 .search {
-    display: block;
-    margin: 5px;
-}
-
-.select {
-    font-size: 14px;
-    box-sizing: border-box;
-    margin-right: 5px;
-    padding: 5px;
-    width: 10%;
-    border-radius: 2px;
-    background-color: #E27D60;
-}
-
-.input {
-    font-size: 14px;
-    padding: 5px 5px;
-    width: 50%;
-    margin-right: 5px;
-}
-
-.button {
-    font-size: 14px;
-    padding: 5px 20px;
-    width: 10%;
-    background-color: #E27D60;
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    .select {
+        font-size: 14px;
+        box-sizing: border-box;
+        margin-right: 5px;
+        padding: 5px;
+        width: 10%;
+        border-radius: 2px;
+        background-color: $orange;
+    }
+    .input {
+        font-size: 14px;
+        padding: 5px 5px;
+        width: 50%;
+        margin-right: 5px;
+    }
+    .button {
+        font-size: 14px;
+        padding: 5px 20px;
+        width: 10%;
+        background-color: $orange;
+    }
 }
